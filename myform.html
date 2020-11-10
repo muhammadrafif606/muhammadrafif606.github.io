@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>05211940000015-Muhammad Rafif</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style> 
+            .label {
+                float: left; width: 120px; 
+            }
+            .infobox {
+                width: 200px; 
+            }
+            .error { 
+                color: red; padding-left: 10px; 
+            }
+            .submit { 
+                margin-left: 125px; margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <form id="signup" method="post" action="">
+            <div>
+                <span class="label">Nama User</span>
+                <input type="text" class="infobox form-control" name="userid"/>
+                <span class="error">Maaf, Bagian Ini Tidak Boleh Kosong</span>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    $('.error').hide();//class dengan nama "error" disembunyikan diawal page
+                    $('.submit').click(function(event){//tombol submit di click
+                        var data=$('.infobox').val();//membaca isi text box dengan nama infobox
+                        var len=data.length;//membaca isi textbox dengan memperhitungkan panjang karakter dan disimpan di variabel len
+                        if(len<1) {//mengecek nilai dari len, dimana jika banyak karakter kurang dari 1
+                            $('.error').show();//maka munculkan class error
+                            event.preventDefault();
+                        } else {//mengecek nilai dari len, dimana selain perintah sebelumnya (banyak karakter kurang dari 1)
+                            $('.error').hide();//maka tetap sembunyikan class erro
+                        }
+                    });
+                });
+            </script>
+            <input class="submit btn btn-info" type="submit" value="Submit">
+        </form>
+        </div>
+    </body>
+</html>
